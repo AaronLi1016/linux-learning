@@ -318,3 +318,8 @@ read  22 bytes: Hello, Linux file IO!
 - `close` 释放文件描述符和内核资源，进程退出时内核也会自动关闭，但显式调用是良好实践。
 - `lseek` 用于移动文件偏移量，不产生实际 IO，不适用于管道和 socket。
 - 每个系统调用失败时返回 `-1` 并设置 `errno`，使用 `perror` 或 `strerror` 可输出错误信息。
+- 写代码的时候不知道需要包含哪个头文件的时候可以`man`就可以查看需要的函数,例如`man 2 open`就能看到
+``` txt
+       #include <fcntl.h>
+       int open(const char *pathname, int flags);
+```
